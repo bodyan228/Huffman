@@ -1,6 +1,6 @@
 from nodes.node_for_symbol import NodeForSymbol
 from nodes.node_for_bits import NodeForBit
-from priority_queue import PriorityQueue
+import queue
 
 
 class Huffman:
@@ -57,18 +57,18 @@ class Huffman:
     @staticmethod
     def create_huffman_tree(frequencies):
         """Составление дерева Хаффмана для символов файла"""
-        pq = PriorityQueue()
+        pq = queue.PriorityQueue()
         for tup in frequencies:
-            pq.enqueue(tup[1], NodeForSymbol(tup[0], tup[1]))
+            pq.put(NodeForSymbol(tup[0], tup[1]))
         
-        while pq.size > 1:
-            bit0 = pq.dequeue()
-            bit1 = pq.dequeue()
+        while pq.qsize() > 1:
+            bit0 = pq.get()
+            bit1 = pq.get()
             freq = bit0.freq + bit1.freq
             next_item = NodeForBit(bit0, bit1, freq)
-            pq.enqueue(freq, next_item)
+            pq.put(next_item)
             
-        return pq.dequeue()
+        return pq.get()
     
     def create_huffman_code(self, root):
         """Стройка кодов для символов"""
@@ -114,60 +114,87 @@ class Huffman:
                 header_list.append(0)
         return header_list
     
-    def decompress(self, arch_file, data_file):
-        """Чтение из сжатого файла байтов"""
-        with open(arch_file, "rb") as file:
-            data = file.read()
-        data = self.decompress_bytes(data)
-        with open(data_file, "wb") as file:
-            data_file = file.write(bytes(data))
-        
-    def decompress_bytes(self, arch):
-        """Парсинг заголовка, составление дерева Хаффмана и
-        разархивация файла"""
-        data_len, start_index, freq = self.parse_header(arch)
-        list_for_create_tree = []
-        for i in range(len(freq)):
-            if freq[i] != 0:
-                list_for_create_tree.append((i, freq[i]))
-        root = self.create_huffman_tree(list_for_create_tree)
-        data = self.decompress_root(arch, start_index, data_len, root)
-        return data
+    start_index: int
+    max_size = 0
     
+    def decompress(self, arch_file, data_file):
+        """Чтение из сжатого файла байтов.
+        Далее парсим заголовок на длину исходных данных, стартового индекса,
+        и приоритет символов в исходном файле.
+        Потом проверяем, если архив не больше 500 Мб,
+        то за одну итерацию разархивируем.
+        Если же нет, то делим его на куски по 500 Мб и записываем в файл."""
+        with open(arch_file, "rb") as file:
+            arch = file.read()
+            
+        data_len, self.start_index, freq = self.parse_header(arch)
+        list_for_create_tree = []
+        
+        for i, el in enumerate(freq):
+            if el != 0:
+                list_for_create_tree.append((i, el))
+        root = self.create_huffman_tree(list_for_create_tree)
+        
+        if self.start_index < 1024*1024*500:
+            data = self.decompress_root(arch, data_len, root)
+            with open(data_file, "wb") as file:
+                data_file = file.write(bytes(data))
+                
+        else:
+            arch_len = len(arch)
+            
+            while arch_len > 1024*1024*500:
+                data = self.decompress_root(arch, data_len, root)
+                
+                with open(data_file, "ab") as file:
+                    data_file = file.write(bytes(data))
+                self.start_index += 1024*1024*500
+                arch_len -= 1024*1024*500
+                
+            data = self.decompress_root(arch, data_len, root)
+            with open(data_file, "ab") as file:
+                data_file = file.write(bytes(data))
+             
+    def decompress_root(self, arch, data_len, root):
+        """Развертывание дерева с корня"""
+        size = 0
+        curr = root
+        data = []
+        for i, current_bit in enumerate(arch):
+            if i == 1024*1024*500:
+                self.max_size = 0
+                break
+            if i < self.start_index:
+                continue
+            else:
+                bit = 1
+                while bit <= 128:
+                    zero = (arch[i] & bit) == 0
+                    if zero:
+                        curr = curr.bit0
+                    else:
+                        curr = curr.bit1
+                    if curr.bit0 is not None:
+                        bit *= 2
+                        continue
+                    size += 1
+                    if size <= data_len:
+                        data.append(curr.symbol)
+                    curr = root
+                    bit *= 2
+            self.max_size += 1
+        return data
+
     @staticmethod
     def parse_header(arch):
         """Парсинг заголовка на длину исходной строки, смещения,
         откуда начинаются данные и последовательность симвлов для построения
         дерева Хаффмана"""
         data_len = arch[0] | (arch[1] << 8) | (arch[1] << 16) | (arch[1] << 24)
-        freq = [0]*256
+        freq = [0] * 256
         for i in range(0, 256):
-            freq[i] = arch[i+4]
-        start_index = 4 + 256
-        return data_len, start_index, freq
-    
-    @staticmethod
-    def decompress_root(arch, start, data_len, root):
-        """Развертывание дерева с корня"""
-        size = 0
-        curr = root
-        data = []
-        for i in range(start, len(arch)):
-            bit = 1
-            while bit <= 128:
-                zero = (arch[i] & bit) == 0
-                if zero:
-                    curr = curr.bit0
-                else:
-                    curr = curr.bit1
-                if curr.bit0 is not None:
-                    bit *= 2
-                    continue
-                size += 1
-                if size <= data_len:
-                    data.append(curr.symbol)
-                curr = root
-                bit *= 2
-        return data
-                
+            freq[i] = arch[i + 4]
+        start = 4 + 256
+        return data_len, start, freq
+
         
