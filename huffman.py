@@ -1,6 +1,7 @@
 from nodes.node_for_symbol import NodeForSymbol
 from nodes.node_for_bits import NodeForBit
 import queue
+import os
 
 
 class Huffman:
@@ -154,6 +155,7 @@ class Huffman:
             data = self.decompress_root(arch, data_len, root)
             with open(data_file, "ab") as file:
                 data_file = file.write(bytes(data))
+        return len(bytes(data)), str(bytes(data))
              
     def decompress_root(self, arch, data_len, root):
         """Развертывание дерева с корня"""
