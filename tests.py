@@ -33,12 +33,22 @@ class TestCorrect(unittest.TestCase):
         self.huffman.compress("for_tests/test5.cs", "for_tests/test5.huf")
         size_arch = os.path.getsize("for_tests/test5.huf")
         size_file = os.path.getsize("for_tests/test5.cs")
-        self.assertLess(size_arch/size_file, 0.59)
+        self.assertLess(size_arch / size_file, 0.59)
 
         self.huffman.compress("for_tests/test6.txt", "for_tests/test6.huf")
         size_arch = os.path.getsize("for_tests/test5.huf")
         size_file = os.path.getsize("for_tests/test5.cs")
         self.assertLess(size_arch / size_file, 0.59)
+
+        self.huffman.compress("for_tests/test7.txt", "for_tests/test7.huf")
+        size_arch = os.path.getsize("for_tests/test7.huf")
+        size_file = os.path.getsize("for_tests/test7.txt")
+        self.assertLess(size_arch / size_file, 0.59)
+
+        self.huffman.compress("for_tests/test8.txt", "for_tests/test8.huf")
+        size_arch = os.path.getsize("for_tests/test8.huf")
+        size_file = os.path.getsize("for_tests/test8.txt")
+        self.assertLess(size_arch / size_file, 0.61)
         
         
         

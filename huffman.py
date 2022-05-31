@@ -1,7 +1,6 @@
 from nodes.node_for_symbol import NodeForSymbol
 from nodes.node_for_bits import NodeForBit
 import queue
-import os
 
 
 class Huffman:

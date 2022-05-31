@@ -1,0 +1,41 @@
+Even as the world continues to grapple with COVID-19 surges and lagging vaccine uptake, most companies remain in the planning stages of office re-openings.
+Over the 18-plus months of the pandemic, corporate plans to swing wide their office doors have have been repeatedly stymied, with most organizations pushing back planned reopening dates — many until next year. Despite the fits and starts, most companies are slowly realizing a hybrid work environment — some employees in the office, others at home — will become a permanent reality.
+[ Related: When it’s time to return to the office, tech is key to success ]
+But some companies refuse to budge, insisting on a return to the pre-COVID-19 workplace. For example, the publishing division of Hearst — which runs newspapers such as the San Francisco Chronicle, and magazines such as Cosmopolitan and Good Housekeeping — is mandating a return to office. In response, workers last week filed an unfair labor practices charge with the National Labor Relations Board.
+While some corporate leaders appear loath to evolve their work model for fear it will put business at risk,  new data shows returning to old ways is riskier than reinventing office culture, according to research firm Gartner.
+With an abundance of job openings and a shortage of labor, most organizations simply aren’t in the position to make such demands, according to researchers who say workers are now focused more than ever on improving their work-life balance.
+Only about 15% of employees want to work full-time in an office environment, according to Gartner. If an organization were to go back to a fully on-site arrangement, it would risk losing up to 39% of its workforce, according to a 2021 Gartner Hybrid Workplace survey published in September.
+“[Employees] in general have really stepped back and reevaluated their life priorities and how they think about work, health, family and other things,” said Graham Waller, a distinguished research vice president at Gartner. "Then join that with the fact there’s a lot of opportunities in this war for talent — especially in the US, there are some of the biggest on record number of job openings.
+RECOMMENDED WHITEPAPERS
+	
+Cybersecurity in the C-suite and Boardroom
+
+	
+Apple TV Management for Beginners
+
+	
+How to Find Your “Just-Right” Marketing Automation Solution
+
+“Certain organizations, including Google, say you can work from anywhere now,” Waller added.
+Particularly in tech-related fields, employers are now offering bigger salaries, signing bonuses, and work flexibility as they strive to meet hiring needs.
+M. Victor Janulaitis, CEO of management consulting firm Janco Associates, said work-from-home employees are not happy with the prospect of having to go back to commuting. "It seems that attrition rates are highest among employees that are told to go back to the office and follow vaccine mandates."
+(Janco regularly conducts employee surveys, but has yet to complete its latest on the issue of return to physical office locations.)
+Even without new data, Janulaitis has observed some key industry trends anecdotally. While overall worker productivity grew significantly during the pandemic, the forced shift to remote work 18 months ago did hamper some business activity. 
+Key performance indicators (KPIs) and service level agreements (SLAs) were not met by many IT functions.  Hold and wait times were (and remain) elongated. There was limited visibility of the staffing requirements for service and help desks. "Dogs barking and loud noises in the background impacted the 'professional image' of the service desks," Janulaitis said.
+"With many IT pros working at home for the past several months, many of the employees did not understand the opportunities they had for training. Before the pandemic, the in-office environment pushed many pros to ask for training," Janulaitis  said. "That did not happen as much in the work from home environment."
+Most organizations today — as many as 85% — are currently operating with a hybrid work model. The exceptios\ns tend to involve workforces where physical presence is necessary, such as brick-and-mortar stores and manufacturing floors. Some tech positions also require workers to be on site to deal with data center issues, such as security and hardware hiccups or upgrades.
+Even in rolling out a hybrid working environment, organizations should remain flexible and not insist on employees being onsite a set number of days each week, or on specific days of the week, according Waller.
+“Their plan was to have people come in three days a week, such as Monday, Wednesday and Friday, and they get such a big push back from employees, including in the form of attrition,” Waller said. “We’re seeing cases of that already. Many organizations are modifying and evolving their plans.”
+This year, 83% of enterprises expect demand from customers for digital products and services will rise, and 65% of corporate board members want to accelerate digital transformation, signaling a willingness to fund and invest in technologies that enable hybrid capabilities, according to Gartner.
+Organizations, however, shouldn’t stop there. They should also evolve their thinking around employee autonomy, allowing workers to choose when they come into the office or stay remote. Employees involved in “heads-down work" — work that doesn’t require face-to-face interaction with colleagues — can perform that from any location.
+Waller said executives have a unique opportunity to break from a location-centric model of work designed around industrial-era constraints, and redesign work around a human-centric model to secure digital-era talent and better business outcomes. “Don’t just focus on how much time they spend in the office and home, but think about how to reinvent work itself based on people. Location is a secondary issue.”
+According to Gartner’s survey, for knowledge workers making the shift from an office-centric to a human-centric design:
+44% indicated a reduction in worker fatigue;
+45% indicated it would increase their intention to stay with a company;
+28% indicated it boosted their performance.
+For example, there is a shift occurring in managerial thinking away from centralized decisions toward peer-to-peer, network-based decision making that reduces bottlenecks and saves time in a hybrid environment. As hybrid work continues to evolve, removing the traditional manager role can lead to more efficiency. 
+By 2024, 30% of corporate teams will be without a boss due to the self-directed and hybrid nature of work, according to Gartner.
+Getting it right requires experimentation, learning, and iterating, according to Gartner. But the outcome could be better workplace performance, innovation, and equity.
+In some industries, gains made toward digital transformation during the pandemic could be lost as the world returns to a new normal. For example, the use of telehealth, or connecting with healthcare workers remotely, jumped 38-fold from the pre-COVID-19 baseline, according to McKinsey & Company, a management consulting firm. There are some who believe those gains could evaporate as insurance companies could require more in-person visits once the pandemic wanes.
+“Something like healthcare is driven so much by business models, particularly around reimbursement between providers and payers. In many cases, I’m sure they will revert back to what was there before, sometimes for the vested interest of different players in the ecosystem,” Waller said. “So, I’m sure there will be a pull back. The question is, how much and will we find the sweet spot in the hybrid model?”
+
